@@ -10,9 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_162133) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_31_155245) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artists", force: :cascade do |t|
+    t.text "bio"
+    t.string "img_url"
+    t.string "instagram"
+    t.string "twitter"
+    t.string "tiktok"
+    t.string "facebook"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "giveaways", force: :cascade do |t|
+    t.string "header"
+    t.string "descirption"
+    t.integer "closing_date"
+    t.string "img_url"
+    t.text "full_details"
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_giveaways_on_artist_id"
+  end
+
+  create_table "shopping_carts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shopping_carts_on_user_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_tickets_on_artist_id"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -26,4 +65,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_162133) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "giveaways", "artists"
+  add_foreign_key "shopping_carts", "users"
+  add_foreign_key "tickets", "artists"
+  add_foreign_key "tickets", "users"
 end
