@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create]
+    skip_before_action :authorized, only: [:create, :index]
 
     def create
         user = User.create(user_params)
@@ -11,6 +11,10 @@ class UsersController < ApplicationController
         end
     end
 
+    def index
+        render json: User.all
+    end
+
     def show
         render json: {user: UserSerializer.new(@user)}
     end
@@ -18,6 +22,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:username, :email, :password)
+        params.require(:user).permit(:username, :email, :password)
     end
 end
