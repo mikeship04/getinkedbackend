@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   post '/login', to: 'auth#create'
   get '/me', to: "users#show"
+  post '/auto_login', to: 'auth#auto_login'
 end

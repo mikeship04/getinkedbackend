@@ -12,6 +12,12 @@ class AuthController < ApplicationController
         end
     end
 
+    def auto_login
+        @token = params[:jwt]
+        user = User.find(JWT.decode(@token, SECRET)[0]["user_id"])
+        render json: user
+    end
+
     private
 
     def user_login_params
