@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  resources :giveaways
   resources :shopping_carts
   resources :tickets
-  resources :giveaways
   resources :artists
   resources :users, only: [:create, :index]
 
