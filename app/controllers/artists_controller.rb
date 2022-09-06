@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-    skip_before_action :authorized, only: [:create, :index]
+    skip_before_action :authorized, only: [:create, :index, :show]
 
     def index
         render json: Artist.all
@@ -8,6 +8,11 @@ class ArtistsController < ApplicationController
     def create
         artist = Artist.create!(artist_params)
         render json: artist, status: :created
+    end
+
+    def show
+        artist = Artist.find_by(id: params[:id])
+        render json: artist.Giveaways
     end
 
     private
