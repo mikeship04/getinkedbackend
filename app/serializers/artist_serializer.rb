@@ -1,3 +1,3 @@
 class ArtistSerializer < ActiveModel::Serializer
-  attributes :id, :bio, :img_url, :instagram, :twitter, :tiktok, :facebook, :name
+  attributes :id, :bio, :img_url, :instagram, :twitter, :tiktok, :facebook, :name, :youtube
 end

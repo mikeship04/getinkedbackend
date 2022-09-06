@@ -5,4 +5,14 @@ class ArtistsController < ApplicationController
         render json: Artist.all
     end
 
+    def create
+        artist = Artist.create!(artist_params)
+        render json: artist, status: :created
+    end
+
+    private
+
+    def artist_params
+        params.require(:artist).permit(:bio, :img_url, :instagram, :twitter, :tiktok, :facebook, :name, :youtube)
+    end
 end
