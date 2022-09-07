@@ -51,3 +51,7 @@ group :development do
 end
 
 gem "active_model_serializers", "~> 0.10.13"
+
+gem 'stripe'
+
+gem 'figaro', '~> 1.1', '>= 1.1.1'
