@@ -4,6 +4,7 @@ puts "Deleting all data"
 Artist.destroy_all
 User.destroy_all
 Giveaway.destroy_all
+Ticket.destroy_all
 
 puts "creating Users..."
 u1 = User.create({ username: "mike", password: '12345', email: "mike@email.com", phone: 4805235223, address: 'somewhere in arizona', admin: true, winner: false})
@@ -25,5 +26,23 @@ g3 = Giveaway.create({header: 'Ryan 4 hour session', description: 'Enter to get 
 #g4 = Giveaway.create({header: 'Ryan 8 hour session', description: 'Enter to get this phonominal experience of a 8 hour session with this artist!', closing_date: Date.new(2023,1,31), img_url: 'https://assets.bigcartel.com/product_images/259725686/Ryan+Bare.jpg?auto=format&fit=max&w=1200', full_details: 'here are the complete details for this event', artist_id: a2.id })
 g5 = Giveaway.create({header: 'Luke 4 hour session', description: 'Enter to get this phonominal experience of a 4 hour session with this artist!', closing_date: Date.new(2023,1,31), img_url: 'https://cdn.shopify.com/s/files/1/1109/4574/products/image_d601e1de-6bc7-46fd-aa7d-7743c6075b88_grande.jpg?v=1629821698', full_details: 'here are the complete details for this event', artist_id: a3.id })
 #g6 = Giveaway.create({header: 'Luke 8 hour session', description: 'Enter to get this phonominal experience of a 8 hour session with this artist!', closing_date: Date.new(2023,1,31), img_url: 'https://cdn.shopify.com/s/files/1/1109/4574/products/image_d601e1de-6bc7-46fd-aa7d-7743c6075b88_grande.jpg?v=1629821698', artist_id: a3.id })
+
+puts "Creating Tickets..."
+
+t1 = Ticket.create({name: 't1', price_in_cents:100, giveaway_id: g1.id, user_id: u1.id})
+t2 = Ticket.create({name: 't2', price_in_cents:100, giveaway_id: g1.id, user_id: u1.id})
+t3 = Ticket.create({name: 't3', price_in_cents:100, giveaway_id: g1.id, user_id: u1.id})
+t4 = Ticket.create({name: 't4', price_in_cents:100, giveaway_id: g1.id, user_id: u1.id})
+t5 = Ticket.create({name: 't5', price_in_cents:100, giveaway_id: g1.id, user_id: u1.id})
+t6 = Ticket.create({name: 't6', price_in_cents:100, giveaway_id: g3.id, user_id: u1.id})
+t7 = Ticket.create({name: 't7', price_in_cents:100, giveaway_id: g3.id, user_id: u1.id})
+t8 = Ticket.create({name: 't8', price_in_cents:100, giveaway_id: g3.id, user_id: u1.id})
+t9 = Ticket.create({name: 't9', price_in_cents:100, giveaway_id: g3.id, user_id: u1.id})
+t10 = Ticket.create({name: 't10', price_in_cents:100, giveaway_id: g3.id, user_id: u1.id})
+t11 = Ticket.create({name: 't11', price_in_cents:100, giveaway_id: g5.id, user_id: u1.id})
+t12 = Ticket.create({name: 't12', price_in_cents:100, giveaway_id: g5.id, user_id: u1.id})
+t13 = Ticket.create({name: 't13', price_in_cents:100, giveaway_id: g5.id, user_id: u1.id})
+t14 = Ticket.create({name: 't14', price_in_cents:100, giveaway_id: g5.id, user_id: u1.id})
+t15 = Ticket.create({name: 't15', price_in_cents:100, giveaway_id: g5.id, user_id: u1.id})
 
 puts "✅ Done seeding!"
