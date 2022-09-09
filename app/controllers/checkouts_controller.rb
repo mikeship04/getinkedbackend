@@ -1,6 +1,8 @@
 class CheckoutsController < ApplicationController
     skip_before_action :authorized, only: [:create]
 
+    ENDPOINT = Rails.env.production? ? 'https://getinkedapp.herokuapp.com/' : 'http://localhost:3000/getInkedFE'
+    
     def create
         ticket = Ticket.find(params[:id])
         session_stripe = Stripe::Checkout::Session.create({
@@ -16,8 +18,8 @@ class CheckoutsController < ApplicationController
             quantity: 1
             }],
             mode: 'payment',
-            success_url: 'http://localhost:3000/getInkedFE/Profile',
-            cancel_url: 'http://localhost:3000/getInkedFE/BuyTickets',
+            success_url: "#{ENDPOINT}/Profile",
+            cancel_url: "#{ENDPOINT}/BuyTickets",
         })
         puts session_stripe.url
         render json:({'url': session_stripe.url})
