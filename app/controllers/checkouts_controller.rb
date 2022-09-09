@@ -1,7 +1,7 @@
 class CheckoutsController < ApplicationController
     skip_before_action :authorized, only: [:create]
 
-    ENDPOINT = Rails.env.production? ? 'https://getinkedapp.herokuapp.com/' : 'http://localhost:3000/getInkedFE'
+    ENDPOINT = Rails.env.production? ? 'https://getinkedapp.herokuapp.com' : 'http://localhost:3000/getInkedFE'
     
     def create
         ticket = Ticket.find(params[:id])
