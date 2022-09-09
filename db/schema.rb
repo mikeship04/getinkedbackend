@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_01_222950) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_08_194429) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_222950) do
     t.string "youtube"
   end
 
+  create_table "checkouts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_checkouts_on_user_id"
+  end
+
   create_table "giveaways", force: :cascade do |t|
     t.string "header"
     t.string "description"
@@ -39,19 +46,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_222950) do
     t.index ["artist_id"], name: "index_giveaways_on_artist_id"
   end
 
-  create_table "shopping_carts", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_shopping_carts_on_user_id"
-  end
-
   create_table "tickets", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "artist_id", null: false
+    t.string "name"
+    t.integer "price_in_cents"
+    t.bigint "user_id"
+    t.bigint "giveaway_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["artist_id"], name: "index_tickets_on_artist_id"
+    t.index ["giveaway_id"], name: "index_tickets_on_giveaway_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
@@ -67,8 +69,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_222950) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "checkouts", "users"
   add_foreign_key "giveaways", "artists"
-  add_foreign_key "shopping_carts", "users"
-  add_foreign_key "tickets", "artists"
+  add_foreign_key "tickets", "giveaways"
   add_foreign_key "tickets", "users"
 end
