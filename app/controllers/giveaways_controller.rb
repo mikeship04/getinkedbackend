@@ -11,7 +11,6 @@ class GiveawaysController < ApplicationController
     end
 
     def update
-        puts params
         artist = Artist.find(params[:id])
         artist.Giveaways.update(giveaway_params)
         render json: artist

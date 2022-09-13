@@ -19,7 +19,7 @@ class CheckoutsController < ApplicationController
             }],
             mode: 'payment',
             success_url: "#{ENDPOINT}/Profile",
-            cancel_url: "#{ENDPOINT}/BuyTickets",
+            cancel_url: "#{ENDPOINT}/HomePage",
         })
         puts session_stripe.url
         render json:({'url': session_stripe.url})

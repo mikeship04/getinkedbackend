@@ -29,20 +29,17 @@ g5 = Giveaway.create({header: 'Luke 4 hour session', description: 'Enter to get 
 
 puts "Creating Tickets..."
 
-t1 = Ticket.create({name: 't1', price_in_cents:100, giveaway_id: g1.id, user_id: u1.id})
-t2 = Ticket.create({name: 't2', price_in_cents:100, giveaway_id: g1.id, user_id: u1.id})
-t3 = Ticket.create({name: 't3', price_in_cents:100, giveaway_id: g1.id, user_id: u1.id})
-t4 = Ticket.create({name: 't4', price_in_cents:100, giveaway_id: g1.id, user_id: u1.id})
-t5 = Ticket.create({name: 't5', price_in_cents:100, giveaway_id: g1.id, user_id: u1.id})
-t6 = Ticket.create({name: 't6', price_in_cents:100, giveaway_id: g3.id, user_id: u1.id})
-t7 = Ticket.create({name: 't7', price_in_cents:100, giveaway_id: g3.id, user_id: u1.id})
-t8 = Ticket.create({name: 't8', price_in_cents:100, giveaway_id: g3.id, user_id: u1.id})
-t9 = Ticket.create({name: 't9', price_in_cents:100, giveaway_id: g3.id, user_id: u1.id})
-t10 = Ticket.create({name: 't10', price_in_cents:100, giveaway_id: g3.id, user_id: u1.id})
-t11 = Ticket.create({name: 't11', price_in_cents:100, giveaway_id: g5.id, user_id: u1.id})
-t12 = Ticket.create({name: 't12', price_in_cents:100, giveaway_id: g5.id, user_id: u1.id})
-t13 = Ticket.create({name: 't13', price_in_cents:100, giveaway_id: g5.id, user_id: u1.id})
-t14 = Ticket.create({name: 't14', price_in_cents:100, giveaway_id: g5.id, user_id: u1.id})
-t15 = Ticket.create({name: 't15', price_in_cents:100, giveaway_id: g5.id, user_id: u1.id})
+t1 = Ticket.create({name: 'ten_tickets', price_in_cents:500, giveaway_id: g1.id, user_id: u1.id})
+t2 = Ticket.create({name: 'one_hundred_tickets', price_in_cents:1000, giveaway_id: g1.id, user_id: u1.id})
+t3 = Ticket.create({name: 'two_twenty_five_tickets', price_in_cents:2000, giveaway_id: g1.id, user_id: u1.id})
+t4 = Ticket.create({name: 'five_hundred_tickets', price_in_cents:5000, giveaway_id: g1.id, user_id: u1.id})
+t6 = Ticket.create({name: 'ten_tickets', price_in_cents:500, giveaway_id: g3.id, user_id: u1.id})
+t7 = Ticket.create({name: 'one_hundred_tickets', price_in_cents:1000, giveaway_id: g3.id, user_id: u1.id})
+t8 = Ticket.create({name: 'two_twenty_five_tickets', price_in_cents:2000, giveaway_id: g3.id, user_id: u1.id})
+t9 = Ticket.create({name: 'five_hundred_tickets', price_in_cents:5000, giveaway_id: g3.id, user_id: u1.id})
+t11 = Ticket.create({name: 'ten_tickets', price_in_cents:500, giveaway_id: g5.id, user_id: u1.id})
+t12 = Ticket.create({name: 'one_hundred_tickets', price_in_cents:1000, giveaway_id: g5.id, user_id: u1.id})
+t13 = Ticket.create({name: 'two_twenty_five_tickets', price_in_cents:2000, giveaway_id: g5.id, user_id: u1.id})
+t14 = Ticket.create({name: 'five_hundred_tickets', price_in_cents:5000, giveaway_id: g5.id, user_id: u1.id})
 
 puts "✅ Done seeding!"
