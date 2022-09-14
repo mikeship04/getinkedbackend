@@ -20,9 +20,11 @@ class CheckoutsController < ApplicationController
             mode: 'payment',
             success_url: "#{ENDPOINT}/Profile",
             cancel_url: "#{ENDPOINT}/HomePage",
+            #customer: current_user.id,
         })
         puts session_stripe.url
         render json:({'url': session_stripe.url})
+        # this is the rails mono repo way to handle this
         # redirect_to session_stripe.url, allow_other_host: true
     end
 
